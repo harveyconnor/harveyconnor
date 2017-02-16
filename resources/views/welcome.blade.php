@@ -1,95 +1,77 @@
-<!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
+@section('content')
+    <!-- Main Container -->
+    <main id="main-container">
+        <!-- Page Header -->
+        <div class="content bg-gray-lighter">
+            <div class="row items-push">
+                <div class="col-sm-7">
+                    <h1 class="page-heading">
+                        Activity <small>Vital UI components for your project.</small>
+                    </h1>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="col-sm-5 text-right hidden-xs">
+                    <ol class="breadcrumb push-10-t">
+                        <li>UI Elements</li>
+                        <li><a class="link-effect" href="">Activity</a></li>
+                    </ol>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+        <!-- END Page Header -->
+
+        <!-- Page Content -->
+        <div class="content">
+            <!-- Alerts -->
+            <div class="block">
+                <div class="block-header">
+                    <h3 class="block-title">Alerts</h3>
+                </div>
+                <div class="block-content">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3">
+                            <!-- Success Alert -->
+                            <div class="alert alert-success alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h3 class="font-w300 push-15">Success</h3>
+                                <p>The <a class="alert-link" href="javascript:void(0)">App</a> was updated!</p>
+                            </div>
+                            <!-- END Success Alert -->
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <!-- Info Alert -->
+                            <div class="alert alert-info alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h3 class="font-w300 push-15">Information</h3>
+                                <p>Information <a class="alert-link" href="javascript:void(0)">message</a>!</p>
+                            </div>
+                            <!-- END Info Alert -->
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <!-- Warning Alert -->
+                            <div class="alert alert-warning alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h3 class="font-w300 push-15">Warning</h3>
+                                <p>Please pay <a class="alert-link" href="javascript:void(0)">attention</a>!</p>
+                            </div>
+                            <!-- END Warning Alert -->
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <!-- Danger Alert -->
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h3 class="font-w300 push-15">Error</h3>
+                                <p>Opps, an error <a class="alert-link" href="javascript:void(0)">occured</a>!</p>
+                            </div>
+                            <!-- END Danger Alert -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Alerts -->
+        </div>
+        <!-- END Page Content -->
+    </main>
+    <!-- END Main Container -->
+@endsection
