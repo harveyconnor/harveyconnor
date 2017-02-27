@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
-<!--[if IE 9]>         <html class="ie9 no-focus" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-focus" lang="en"> <!--<![endif]-->
+<!--[if IE 9]><html class="ie9 no-focus" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-focus" lang="en"><!--<![endif]-->
 <head>
     <meta name="description" content="Harvey Connor">
     <meta name="author" content="Harvey Connor">
@@ -10,10 +10,11 @@
 
     <link rel="shortcut icon" href="assets/img/favicons/favicon.png">
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta id="csrf-token" name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('page_title') - {{ config('app.name', 'Laravel') }}</title>
 
+    @yield('extra_styles')
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">

@@ -11,10 +11,39 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/logout', 'Auth\LoginController@logout');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/{page}', 'PageController@show')->name('pages.show');
+
+Route::group(["middleware" => "auth"], function () {
+
+    Route::group(["prefix" => "admin"], function () {
+        Route::get('/', 'HomeController@index')->name('admin.index');
+
+        //Show Admin Profile
+        Route::get('profile', 'AdminController@show')->name('admin.profile');
+
+        Route::group(["prefix" => "pages"], function () {
+            Route::get('/', 'PageController@index')->name('pages.index');
+            //Create pages
+            Route::get('create', 'PageController@create')->name('pages.create');
+            Route::post('create', 'PageController@store')->name('pages.store');
+        });
+        Route::get('page/{page}', 'PageController@edit')->name('pages.edit');
+        Route::post('page/{page}', 'PageController@update')->name('pages.update');
+
+        Route::group(["prefix" => "users"], function () {
+
+            Route::get('/', 'UserController@index')->name('users.index');
+            //Create pages
+            Route::get('create', 'UserController@create')->name('users.create');
+            Route::post('create', 'UserController@store')->name('users.store');
+        });
+        //Display user
+        Route::get('user/{user}', 'UserController@show')->name('users.show');
+
+    });
+});

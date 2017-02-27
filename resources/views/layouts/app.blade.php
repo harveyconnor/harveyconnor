@@ -10,5 +10,6 @@
         <!-- END Page Container -->
     </div>
 @include('partials.foot')
+@yield('extra_scripts')
 </body>
 </html>

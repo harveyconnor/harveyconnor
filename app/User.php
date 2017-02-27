@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name','last_name','role_id', 'email', 'password',
     ];
 
     /**
@@ -26,4 +26,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function isAdmin()
+    {
+        //Show page = true
+
+        if (Auth::user()->role_id == 3)
+        {
+            return true;
+        }
+        return false;
+
+    }
+
+    public function pages() {
+        return $this->hasMany(Page::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id', 'role_id');
+    }
 }
