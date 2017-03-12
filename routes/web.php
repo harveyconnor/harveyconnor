@@ -14,6 +14,13 @@
 Route::get('/logout', 'Auth\LoginController@logout');
 Auth::routes();
 
+Route::get('/chats', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
+
+Route::get('/ptv', 'HomeController@ptv');
+Route::get('/ptv/routes', 'HomeController@ptvRoutes');
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/{page}', 'PageController@show')->name('pages.show');
